@@ -1,4 +1,4 @@
-## Zortrax M300 Dual Extruder Communication Protocol ##
+# Zortrax M300 Dual Extruder Communication Protocol #
 
 This repo is for a project to reverse engineer the communication to a M300 Dual Extruder Toolhead which I bought second hand for 8% of a new one. I don't own a M300, so I want to reverse engineer the communication to be able to use it with Klipper in my own 3d printer.
 
@@ -12,13 +12,13 @@ Or the Snapmaker dual extruder motherboard:
 https://eu.snapmaker.com/products/mainboard-for-dual-extrusion-3d-printing-module?currency=EUR&variant=42937079103627&stkn=7aab4a6d2456&utm_source=chatgpt.com
 
 
-### Extruder Design ###
+## Extruder Design ##
 
 It only requires 1 extruder motor. which rolls 2 filaments over 1 cogwheel by turning left, or right. So if one is used to be pushed down, the other one is moved upwards and vice versa.
 
-It uses a mechanical end push X-axis mechanism to move the 2 hotends up or down by pushing a brass lever to the left or right.
+It uses a mechanical end push over the X-axis mechanism to move the 2 hotends up or down by pushing a brass lever to the left or right and push the filament on or releasing it on the extruder cogwheel.
 
-Inside there are to 
+Inside there are [2 optical encoders](https://support.zortrax.com/wp-content/uploads/2019/07/Extruder-Maintenance-D-06-Odkr%C4%99%C4%87-3-%C5%9Bruby-pcb-i-pcb-z-modu%C5%82em-out-11-825x464.jpg) which count the steps of the moving filament to used to detect if a filament is jammed or not moving.
 
 Reference photos:
 https://support.zortrax.com/extruder-maintenance/
@@ -27,7 +27,7 @@ Zortrax documentation reverse engineering:
 https://github.com/zharijs/zmxxxp-re
 
 
-### ICs ###
+## ICs ##
 The TI 72 marking I2c GPIO chip is a [TCA9536](https://www.ti.com/lit/ds/symlink/tca9536.pdf?ts=1759416374937) which can control 4 pins P0 to P3 on i2c address 0x41 (page 19)
 
 P0 Up Fan
@@ -38,7 +38,7 @@ P3 Down Fan
 I found this on the [i2c io evaluation board of TI](https://www.ti.com/lit/ug/slvua59a/slvua59a.pdf):
 
 
-### Connectors ###
+## Connectors ##
 
 The 51 pin LVDS LCD type connector is a: JAE FI-RE51S-HF (right angle shell type, VF is a straight version)
 https://docs.rs-online.com/6644/0900766b816cba71.pdf
